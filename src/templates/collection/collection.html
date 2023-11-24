@@ -1,0 +1,34 @@
+{% extends './base.html' %}
+
+{% block title %}Recaudo{% endblock %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/login.css')}}">
+{% endblock%}
+
+{% block body %}
+<main class="form-signin w-100 m-auto">
+	<h1>Bienvenido, {{current_user.fullname}}</h1>
+	<a class="btn btn-secondary" href="{{url_for('logout')}}">Logout</a>
+	<form class="form-signin w-100 m-auto" action="/login" method="POST">
+		<div class="col-12">
+			<label for="username" class="form-label">Número de factura</label>
+			<div class="input-group has-validation">
+				<span class="input-group-text">N°</span>
+				<input type="text" class="form-control" id="username" placeholder="278932" required="">
+				<div class="invalid-feedback">
+					El número de factura es requerido.
+				</div>
+			</div>
+		</div>
+		<div class="col-12">
+			<label for="address" class="form-label">Identificación cliente</label>
+			<input type="text" class="form-control" id="address" placeholder="2367823678" required="">
+			<div class="invalid-feedback">
+				Ingrese identificación del cliente
+			</div>
+		</div>
+		<button class="w-100 btn btn-primary btn-lg" type="submit">Consultar</button>
+	</form>
+</main>
+{% endblock %}

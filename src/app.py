@@ -51,7 +51,7 @@ def logout():
 @app.route('/home')
 @login_required
 def home():
-	return render_template('home.html')
+	return render_template('collection/collection.html')
 
 def status_401(error):
 	return redirect(url_for('login'))
